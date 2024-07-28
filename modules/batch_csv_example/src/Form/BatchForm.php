@@ -25,6 +25,10 @@ class BatchForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['help'] = [
+      '#markup' => $this->t('This form will run a batch operation that will import a CSV to create Article content items. The CSV is processed in the batch operation so the size of the file does not matter.'),
+    ];
+
     $form['csv_file'] = [
       '#type' => 'file',
       '#title' => $this->t('The CSV file to process'),
@@ -33,7 +37,7 @@ class BatchForm extends FormBase {
 
     $form['csv_file_generate'] = [
       '#type' => 'link',
-      '#title' => $this->t('Generate a CSV file'),
+      '#title' => $this->t('Generate a CSV file containing 500 items.'),
       '#url' => Url::fromRoute('batch_csv_example.generate'),
     ];
 

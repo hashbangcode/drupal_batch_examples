@@ -1,6 +1,6 @@
 batch_csv_example:
   title: 'Batch CSV Example'
   parent: drupal_batch_examples
-  description: 'Process a CSV using the batch API.'
+  description: 'This form will take a CSV file and process it in a batch to create content.'
   route_name: batch_csv_example
-  weight: 2
+  weight: 5

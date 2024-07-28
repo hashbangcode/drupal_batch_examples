@@ -24,6 +24,10 @@ class BatchForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['help'] = [
+      '#markup' => $this->t('Submit this form to run a batch operation held in another class. This operation will run through 1000 items in chunks of 100.'),
+    ];
+
     $form['actions'] = [
       '#type' => 'actions',
       'submit' => [

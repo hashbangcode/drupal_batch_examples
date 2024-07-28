@@ -1,6 +1,6 @@
 batch_form_example:
   title: 'Batch Form Example'
   parent: drupal_batch_examples
-  description: 'Batch form example.'
+  description: 'A simple example of the batch API contained within a form class.'
   route_name: batch_form_example
   weight: 1

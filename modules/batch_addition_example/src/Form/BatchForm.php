@@ -24,6 +24,10 @@ class BatchForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['help'] = [
+      '#markup' => $this->t('This form will initiate a batch run that will add a number of additional batch runs during the first pass. Once the first batch has completed the secondary batches will be processed.'),
+    ];
+
     $form['actions'] = [
       '#type' => 'actions',
       'submit' => [

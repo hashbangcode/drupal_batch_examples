@@ -1,6 +1,6 @@
 batch_class_example:
   title: 'Batch Class Example'
   parent: drupal_batch_examples
-  description: 'Batch class example.'
+  description: 'An example of splitting the batch out of a form and into a class.'
   route_name: batch_class_example
   weight: 2

@@ -1,6 +1,6 @@
 batch_addition_example:
   title: 'Batch Addition Example'
   parent: drupal_batch_examples
-  description: 'Batch addition example.'
+  description: 'An example of adding to an batch run whilst a batch run is being processed.'
   route_name: batch_addition_example
-  weight: 2
+  weight: 4

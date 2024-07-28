@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\batch_csv_example\Functional;
 
-use Drupal\Core\File\FileExists;
 use Drupal\Tests\BrowserTestBase;
 
 /**
