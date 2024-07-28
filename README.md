@@ -14,7 +14,7 @@ All modules have unit tests to test that the batch has run correctly.
 
 A meta-module to provide a consistent navigation system for the other examples.
 
-Path: /drupal-batch-examples
+Path: `/drupal-batch-examples`
 
 ## Batch Form Example
 
