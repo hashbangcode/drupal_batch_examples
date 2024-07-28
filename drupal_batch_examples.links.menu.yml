@@ -1,0 +1,6 @@
+drupal_batch_examples:
+  title: 'Drupal Batch Examples'
+  parent: system.admin
+  description: 'Drupal batch examples.'
+  route_name: drupal_batch_examples
+  weight: 1

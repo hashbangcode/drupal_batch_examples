@@ -1,0 +1,5 @@
+name: 'Drupal Batch Examples'
+type: module
+description: 'A set of modules that show examples of the batch API.'
+package: Custom
+core_version_requirement: ^10 || ^11

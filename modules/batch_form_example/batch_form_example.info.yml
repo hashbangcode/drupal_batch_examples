@@ -1,0 +1,5 @@
+name: 'Batch form example'
+type: module
+description: 'An example of running a batch in a self contained form.'
+package: Custom
+core_version_requirement: ^10 || ^11

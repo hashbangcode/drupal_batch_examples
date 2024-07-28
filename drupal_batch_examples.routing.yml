@@ -1,0 +1,7 @@
+drupal_batch_examples:
+  path: '/drupal-batch-examples'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Drupal Batch Examples'
+  requirements:
+    _permission: 'access content'

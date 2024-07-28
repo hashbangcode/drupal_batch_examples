@@ -1,0 +1,15 @@
+batch_csv_example:
+  path: '/drupal-batch-examples/batch-csv-example'
+  defaults:
+    _title: 'Batch CSV Example'
+    _form: 'Drupal\batch_csv_example\Form\BatchForm'
+  requirements:
+    _permission: 'access content'
+
+batch_csv_example.generate:
+  path: '/drupal-batch-examples/batch-csv-example/generate-csv'
+  defaults:
+    _title: 'Generate A CSV'
+    _controller: '\Drupal\batch_csv_example\Controller\GenerateCsvController'
+  requirements:
+    _permission: 'access content'

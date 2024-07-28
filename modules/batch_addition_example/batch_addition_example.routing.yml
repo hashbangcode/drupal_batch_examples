@@ -1,0 +1,7 @@
+batch_addition_example:
+  path: '/drupal-batch-examples/batch-addition-example'
+  defaults:
+    _title: 'Batch Addition Example'
+    _form: 'Drupal\batch_addition_example\Form\BatchForm'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,6 @@
+batch_addition_example:
+  title: 'Batch Addition Example'
+  parent: drupal_batch_examples
+  description: 'Batch addition example.'
+  route_name: batch_addition_example
+  weight: 2

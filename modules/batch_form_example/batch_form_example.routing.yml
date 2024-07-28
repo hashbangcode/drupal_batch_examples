@@ -1,0 +1,7 @@
+batch_form_example:
+  path: '/drupal-batch-examples/batch-form-example'
+  defaults:
+    _title: 'Batch Form Example'
+    _form: 'Drupal\batch_form_example\Form\BatchForm'
+  requirements:
+    _permission: 'access content'

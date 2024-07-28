@@ -1,0 +1,5 @@
+name: 'Batch additions example'
+type: module
+description: 'An example of adding a batch inside a running batch.'
+package: Custom
+core_version_requirement: ^10 || ^11

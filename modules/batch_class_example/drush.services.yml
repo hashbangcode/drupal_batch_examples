@@ -1,0 +1,6 @@
+services:
+  batch_class_example.commands:
+    class: \Drupal\batch_class_example\Commands\BatchCommands
+    tags:
+      - { name: drush.command }
+    arguments: ['@logger.factory']

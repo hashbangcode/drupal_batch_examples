@@ -1,0 +1,6 @@
+batch_finish_example:
+  title: 'Batch Finish Example'
+  parent: drupal_batch_examples
+  description: 'Batch finish example.'
+  route_name: batch_finish_example
+  weight: 2
