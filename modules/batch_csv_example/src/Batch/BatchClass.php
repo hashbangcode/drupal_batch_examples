@@ -42,7 +42,7 @@ class BatchClass {
     ]);
 
     // How many lines to process at once?
-    $limit = 75;
+    $limit = 1;
 
     // Keep track of how many lines we have processed in this batch.
     $count = 0;
@@ -50,15 +50,6 @@ class BatchClass {
     if ($handle = fopen($fileName, 'r')) {
       fseek($handle, $context['sandbox']['seek']);
       while ($line = fgetcsv($handle, 4096)) {
-        $context['results']['progress']++;
-
-        $count++;
-        if ($count >= $limit) {
-          // We have reached the limit for this run, break out of the loop.
-          // If we have more file to process then we will run the batch
-          // function again.
-          break;
-        }
 
         $context['results']['progress']++;
 
@@ -83,6 +74,14 @@ class BatchClass {
         $node->save();
 
         $context['results']['updated']++;
+
+        $count++;
+        if ($count >= $limit) {
+          // We have reached the limit for this run, break out of the loop.
+          // If we have more file to process then we will run the batch
+          // function again.
+          break;
+        }
       }
       // Update the position of the pointer.
       $context['sandbox']['seek'] = ftell($handle);

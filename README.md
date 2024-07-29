@@ -22,6 +22,12 @@ An example of running a batch in a self contained form.
 
 Path: `/drupal-batch-examples/batch-form-example`
 
+## Batch Controller Example
+
+An example of running a batch from a controller.
+
+Path: `/drupal-batch-examples/batch-controller-example`
+
 ## Batch Class Example
 
 An example of running batch via a class. Includes Drush support.

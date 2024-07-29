@@ -3,4 +3,4 @@ batch_class_example:
   parent: drupal_batch_examples
   description: 'An example of splitting the batch out of a form and into a class.'
   route_name: batch_class_example
-  weight: 2
+  weight: 3

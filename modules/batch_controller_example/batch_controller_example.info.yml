@@ -1,0 +1,5 @@
+name: 'Batch controller example'
+type: module
+description: 'An example of running a batch in a self contained controller.'
+package: Custom
+core_version_requirement: ^10 || ^11

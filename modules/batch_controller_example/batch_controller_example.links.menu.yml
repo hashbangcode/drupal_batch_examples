@@ -1,0 +1,6 @@
+batch_controller_example:
+  title: 'Batch Controller Example'
+  parent: drupal_batch_examples
+  description: 'A simple example of the batch API contained within a controller class.'
+  route_name: batch_controller_example
+  weight: 2

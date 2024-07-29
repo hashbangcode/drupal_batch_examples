@@ -3,4 +3,4 @@ batch_finish_example:
   parent: drupal_batch_examples
   description: 'An example of using the finish property of the batch API to stop the batch.'
   route_name: batch_finish_example
-  weight: 3
+  weight: 4

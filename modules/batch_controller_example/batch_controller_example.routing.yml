@@ -1,0 +1,7 @@
+batch_controller_example:
+  path: '/drupal-batch-examples/batch-controller-example'
+  defaults:
+    _title: 'Batch Controller Example'
+    _controller: '\Drupal\batch_controller_example\Controller\BatchController'
+  requirements:
+    _permission: 'access content'
