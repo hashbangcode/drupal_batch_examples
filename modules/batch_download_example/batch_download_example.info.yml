@@ -1,0 +1,5 @@
+name: 'Batch download example'
+type: module
+description: 'An example of using batch to generate a file for download.'
+package: Custom
+core_version_requirement: ^10 || ^11

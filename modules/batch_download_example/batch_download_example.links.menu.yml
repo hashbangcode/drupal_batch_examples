@@ -1,0 +1,6 @@
+batch_download_example:
+  title: 'Batch Download Example'
+  parent: drupal_batch_examples
+  description: 'An example of generating a file in a batch run.'
+  route_name: batch_download_example
+  weight: 7

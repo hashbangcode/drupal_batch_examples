@@ -64,9 +64,6 @@ class BatchClass {
     $context['sandbox']['progress'] += $batchSize;
 
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
-    if ($context['sandbox']['progress'] >= $context['sandbox']['max']) {
-      $context['finished'] = 1;
-    }
   }
 
   /**
