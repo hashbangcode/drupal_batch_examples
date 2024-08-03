@@ -1,0 +1,6 @@
+loader:
+  js:
+    js/loader.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.progress

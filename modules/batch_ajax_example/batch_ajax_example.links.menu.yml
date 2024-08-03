@@ -1,0 +1,6 @@
+batch_ajax_example:
+  title: 'Batch AJAX Example'
+  parent: drupal_batch_examples
+  description: 'An example of running a batch via ajax without the user seeing the batch interface.'
+  route_name: batch_ajax_example
+  weight: 8

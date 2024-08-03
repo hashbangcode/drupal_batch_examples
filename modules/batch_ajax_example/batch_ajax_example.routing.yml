@@ -1,0 +1,15 @@
+batch_ajax_example:
+  path: '/drupal-batch-examples/batch-ajax-example'
+  defaults:
+    _title: 'Batch AJAX Example'
+    _controller: 'Drupal\batch_ajax_example\Controller\BatchController'
+  requirements:
+    _permission: 'access content'
+
+batch_ajax_example_callback:
+  path: '/drupal-batch-examples/batch-ajax-example-callback'
+  defaults:
+    _title: 'Batch AJAX Example'
+    _controller: 'Drupal\batch_ajax_example\Controller\BatchController:ajaxBatchProcess'
+  requirements:
+    _permission: 'access content'

@@ -63,3 +63,25 @@ You can download the CSV needed for this form at the path
 `/drupal-batch-examples/batch-csv-example/generate-csv`, which is also linked to
 from the batch form itself. The CSV is generated from random data and so will
 be different every time you download it.
+
+## Batch Download Example
+
+An example of how to generate a large file in a batch process and then issue
+that file to the user.
+
+Path: `/drupal-batch-examples/batch-download-example`
+
+This example works by setting a redirecting the user back to a controller page
+once the file has been created. This then issues the file as a download and
+deletes it at the same time.
+
+## Batch Ajax Example
+
+Shows an example of running a batch process outside of the normal batch interface.
+
+Path: `/drupal-batch-examples/batch-ajax-example`
+
+You can use this example to create a different page for the user that isn't
+part of the normal batch systems, but still runs a normal batch process. You
+can use this as an interstitial page for when you want to prepare things for
+your users.

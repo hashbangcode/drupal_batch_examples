@@ -1,0 +1,5 @@
+name: 'Batch AJAX example'
+type: module
+description: 'An example of running batch via AJAX.'
+package: Custom
+core_version_requirement: ^10 || ^11
