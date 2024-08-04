@@ -3,4 +3,5 @@ loader:
     js/loader.js: {}
   dependencies:
     - core/jquery
+    - core/once
     - core/drupal.progress

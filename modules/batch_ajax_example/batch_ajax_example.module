@@ -8,12 +8,10 @@
 /**
  * Implements hook_theme().
  */
-function batch_ajax_example_theme($existing, $type, $theme, $path)
-{
+function batch_ajax_example_theme($existing, $type, $theme, $path) {
   return [
     'my_loading' => [
-      'variables' => [
-      ],
+      'variables' => [],
     ],
   ];
 }

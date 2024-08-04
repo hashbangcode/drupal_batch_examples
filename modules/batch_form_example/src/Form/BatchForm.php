@@ -42,6 +42,7 @@ class BatchForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    // Create and set up the batch builder object.
     $batch = new BatchBuilder();
     $batch->setTitle('Running batch process.')
       ->setFinishCallback([self::class, 'batchFinished'])
@@ -52,7 +53,7 @@ class BatchForm extends FormBase {
     // Create 10 chunks of 100 items.
     $chunks = array_chunk(range(1, 1000), 100);
 
-    // Process each chunk in the array.
+    // Process each chunk in the array to operations in the batch process.
     foreach ($chunks as $id => $chunk) {
       $args = [
         $id,
@@ -62,6 +63,7 @@ class BatchForm extends FormBase {
     }
     batch_set($batch->toArray());
 
+    // Set the redirect for the form submission back to the form itself.
     $form_state->setRedirectUrl(new Url($this->getFormId()));
   }
 
@@ -88,7 +90,6 @@ class BatchForm extends FormBase {
     }
 
     // Keep track of progress.
-    $context['results']['progress'] += count($chunk);
     $context['results']['process'] = 'Chunk batch completed';
 
     // Message above progress bar.
@@ -99,9 +100,14 @@ class BatchForm extends FormBase {
     ]);
 
     foreach ($chunk as $number) {
-      // Sleep for a bit to simulate work being done.
+      // Increment the progress counter.
+      $context['results']['progress']++;
+      // Sleep for a bit (making use of the number variable) to simulate work
+      // being done. We do this so that the batch takes a noticeable amount of
+      // time to complete.
       usleep(4000 + $number);
-      // Decide on the result of the batch.
+      // Decide on the result of the batch. We use the random parameter here to
+      // simulate different conditions happening during the batch process.
       $result = rand(1, 4);
       switch ($result) {
         case '1':
@@ -133,8 +139,12 @@ class BatchForm extends FormBase {
    *   Batch.inc kindly provides the elapsed processing time in seconds.
    */
   public static function batchFinished(bool $success, array $results, array $operations, string $elapsed): void {
+    // Grab the messenger service, this will be needed if the batch was a
+    // success or a failure.
     $messenger = \Drupal::messenger();
     if ($success) {
+      // The success variable was true, which indicates that the batch process
+      // was successful (i.e. no errors occurred).
       // Show success message to the user.
       $messenger->addMessage(t('@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
         '@process' => $results['process'],
@@ -145,7 +155,7 @@ class BatchForm extends FormBase {
         '@elapsed' => $elapsed,
       ]));
       // Log the batch success.
-      \Drupal::logger('delete_orphan')->info(
+      \Drupal::logger('batch_form_example')->info(
         '@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
           '@process' => $results['process'],
           '@count' => $results['progress'],

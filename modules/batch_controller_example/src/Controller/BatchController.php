@@ -112,8 +112,12 @@ class BatchController extends ControllerBase {
    *   A redirect response.
    */
   public static function batchFinished(bool $success, array $results, array $operations, string $elapsed): RedirectResponse {
+    // Grab the messenger service, this will be needed if the batch was a
+    // success or a failure.
     $messenger = \Drupal::messenger();
     if ($success) {
+      // The success variable was true, which indicates that the batch process
+      // was successful (i.e. no errors occurred).
       // Show success message to the user.
       $messenger->addMessage(t('@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
         '@process' => $results['process'],
@@ -124,7 +128,7 @@ class BatchController extends ControllerBase {
         '@elapsed' => $elapsed,
       ]));
       // Log the batch success.
-      \Drupal::logger('delete_orphan')->info(
+      \Drupal::logger('batch_controller_example')->info(
         '@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
           '@process' => $results['process'],
           '@count' => $results['progress'],

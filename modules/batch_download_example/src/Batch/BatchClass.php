@@ -84,15 +84,19 @@ class BatchClass {
    *   Batch.inc kindly provides the elapsed processing time in seconds.
    */
   public static function batchFinished(bool $success, array $results, array $operations, string $elapsed) {
+    // Grab the messenger service, this will be needed if the batch was a
+    // success or a failure.
     $messenger = \Drupal::messenger();
     if ($success) {
+      // The success variable was true, which indicates that the batch process
+      // was successful (i.e. no errors occurred).
       // Show success message to the user.
       $messenger->addMessage(t('exported @count entities in @elapsed.', [
         '@count' => $results['progress'],
         '@elapsed' => $elapsed,
       ]));
       // Log the batch success.
-      \Drupal::logger('delete_orphan')->info(
+      \Drupal::logger('batch_download_example')->info(
         'exported @count entities in @elapsed.', [
           '@count' => $results['progress'],
           '@elapsed' => $elapsed,

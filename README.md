@@ -77,7 +77,8 @@ deletes it at the same time.
 
 ## Batch Ajax Example
 
-Shows an example of running a batch process outside of the normal batch interface.
+Shows an example of running a batch process outside of the normal batch
+interface.
 
 Path: `/drupal-batch-examples/batch-ajax-example`
 
@@ -85,3 +86,10 @@ You can use this example to create a different page for the user that isn't
 part of the normal batch systems, but still runs a normal batch process. You
 can use this as an interstitial page for when you want to prepare things for
 your users.
+
+# Thanks
+
+- Some of the batch process and finishing code is taken from
+https://www.drupalatyourfingertips.com/bq.
+- The SVG used in the Ajax example is by
+https://github.com/SamHerbert/SVG-Loaders.

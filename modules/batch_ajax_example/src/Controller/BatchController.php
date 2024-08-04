@@ -8,7 +8,6 @@ use Drupal\Core\Ajax\BaseCommand;
 use Drupal\Core\Batch\BatchBuilder;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * A controller action that triggers a batch run.
@@ -18,10 +17,10 @@ class BatchController extends ControllerBase {
   /**
    * Callback for the route batch_controller_example.
    *
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse|null
-   *   The redirect to the batch worker.
+   * @return array
+   *   The rendered loading page.
    */
-  public function __invoke() {
+  public function __invoke():array {
     return [
       '#theme' => 'my_loading',
       '#attached' => [
@@ -32,13 +31,19 @@ class BatchController extends ControllerBase {
     ];
   }
 
+  /**
+   * Callback for the route batch_ajax_example_callback.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   The ajax response object.
+   */
   public function ajaxBatchProcess() {
-    // Setup batch process.
+    // Setup batch process, this time without a finish step.
     $batch = new BatchBuilder();
     $batch->setTitle('Running batch process.')
-      ->setFinishCallback([BatchClass::class, 'batchFinished'])
       ->setInitMessage('Commencing')
       ->setProgressMessage('Processing...')
+      ->setProgressive(FALSE)
       ->setErrorMessage('An error occurred during processing.');
 
     // Create 10 chunks of 100 items.
@@ -54,15 +59,14 @@ class BatchController extends ControllerBase {
     }
     batch_set($batch->toArray());
 
-    // Get the batch that we just created.
-    $batch =& batch_get();
-
-    // Ensure that the finished response doesn't produce any messages.
-    $batch['sets'][0]['finished'] = NULL;
-
     // Create the batch_process(), and feed it a URL that it will go to.
     $url = Url::fromRoute('drupal_batch_examples');
     $response = batch_process($url);
+
+    // Create a message to sent to the user on batch completion. We do this here
+    // because the finish callback isn't called in this context. This will show
+    // on the next page after the redirect happens.
+    $this->messenger()->addMessage('Batch AJAX run complete');
 
     // Return the response to the ajax output.
     $ajaxResponse = new AjaxResponse();
