@@ -43,7 +43,6 @@ class BatchController extends ControllerBase {
     $batch->setTitle('Running batch process.')
       ->setInitMessage('Commencing')
       ->setProgressMessage('Processing...')
-      ->setProgressive(FALSE)
       ->setErrorMessage('An error occurred during processing.');
 
     // Create 10 chunks of 100 items.
