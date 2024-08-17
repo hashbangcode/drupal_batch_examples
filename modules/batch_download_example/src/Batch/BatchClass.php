@@ -26,6 +26,7 @@ class BatchClass {
     }
     if (!isset($context['results']['progress'])) {
       $context['results']['progress'] = 0;
+      $context['results']['process'] = 'Download batch completed';
     }
 
     if ($context['sandbox']['max'] === 0) {
@@ -36,8 +37,6 @@ class BatchClass {
       $context['finished'] = 1;
       return;
     }
-
-    $context['results']['process'] = 'File creation completed';
 
     // Message above progress bar.
     $context['message'] = t('Processing batch for total @count items.', [

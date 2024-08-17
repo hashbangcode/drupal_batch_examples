@@ -87,10 +87,11 @@ class BatchForm extends FormBase {
       $context['results']['skipped'] = 0;
       $context['results']['failed'] = 0;
       $context['results']['progress'] = 0;
+      $context['results']['process'] = 'Form batch completed';
     }
 
     // Keep track of progress.
-    $context['results']['process'] = 'Chunk batch completed';
+    $context['results']['progress'] += count($chunk);
 
     // Message above progress bar.
     $context['message'] = t('Processing batch #@batch_id batch size @batch_size for total @count items.', [
@@ -100,8 +101,6 @@ class BatchForm extends FormBase {
     ]);
 
     foreach ($chunk as $number) {
-      // Increment the progress counter.
-      $context['results']['progress']++;
       // Sleep for a bit (making use of the number variable) to simulate work
       // being done. We do this so that the batch takes a noticeable amount of
       // time to complete.

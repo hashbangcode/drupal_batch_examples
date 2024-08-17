@@ -25,9 +25,8 @@ class BatchClass {
       $context['results']['skipped'] = 0;
       $context['results']['failed'] = 0;
       $context['results']['progress'] = 0;
+      $context['results']['process'] = 'Finish batch completed';
     }
-
-    $context['results']['process'] = 'Finish batch completed';
 
     // Message above progress bar.
     $context['message'] = t('Processing batch @progress of total @count items.', [

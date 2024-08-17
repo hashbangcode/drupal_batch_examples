@@ -27,11 +27,11 @@ class BatchClass {
       $context['results']['skipped'] = 0;
       $context['results']['failed'] = 0;
       $context['results']['progress'] = 0;
+      $context['results']['process'] = 'Class batch completed';
     }
 
     // Keep track of progress.
     $context['results']['progress'] += count($chunk);
-    $context['results']['process'] = 'Chunk batch completed';
 
     // Message above progress bar.
     $context['message'] = t('Processing batch #@batch_id batch size @batch_size for total @count items.', [

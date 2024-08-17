@@ -27,9 +27,8 @@ class BatchClass {
       $context['results']['skipped'] = 0;
       $context['results']['failed'] = 0;
       $context['results']['progress'] = 0;
+      $context['results']['process'] = 'CSV batch completed';
     }
-
-    $context['results']['process'] = 'Process CSV';
 
     $filesize = filesize($fileName);
 
