@@ -94,7 +94,7 @@ class BatchClass {
    * @param bool $success
    *   TRUE if all batch API tasks were completed successfully.
    * @param array $results
-   *   An array of processed node IDs.
+   *   An results array from the batch processing operations.
    * @param array $operations
    *   A list of the operations that had not been completed.
    * @param string $elapsed
