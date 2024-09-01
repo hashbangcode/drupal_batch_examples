@@ -64,9 +64,9 @@ class BatchCommands extends DrushCommands {
 
     drush_backend_batch_process();
 
-    // Finish.
+    // Finished, send a response to the user and log the batch finish state.
     $this->logger()->notice("Batch operations end.");
-    $this->loggerChannelFactory->get('link_audit')->info('Redirect import batch operations end.');
+    $this->loggerChannelFactory->get('batch_class_example')->info('Batch operations end.');
   }
 
 }
