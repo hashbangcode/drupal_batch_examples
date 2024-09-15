@@ -1,0 +1,16 @@
+batch_finished_example:
+  path: '/drupal-batch-examples/batch-finished-example'
+  defaults:
+    _title: 'Batch Finished Example'
+    _form: 'Drupal\batch_finished_example\Form\BatchForm'
+  requirements:
+    _permission: 'access content'
+
+batch_process_nodes:
+  path: '/drupal-batch-examples/batch-process-nodes'
+  defaults:
+    _title: 'Batch Process Nodes'
+    _form: 'Drupal\batch_finished_example\Form\ProcessNodes'
+  requirements:
+    _permission: 'access content'
+

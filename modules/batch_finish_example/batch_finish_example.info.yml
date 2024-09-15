@@ -1,5 +1,0 @@
-name: 'Batch finish example'
-type: module
-description: 'An example of using the finish property of the batch API.'
-package: Custom
-core_version_requirement: ^10 || ^11

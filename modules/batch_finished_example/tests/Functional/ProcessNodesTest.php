@@ -1,15 +1,15 @@
 <?php
 
-namespace Drupal\Tests\batch_finish_example\Functional;
+namespace Drupal\Tests\batch_finished_example\Functional;
 
 use Drupal\Tests\BrowserTestBase;
 
 /**
- * Test the functionality of the batch finish form example form.
+ * Test the functionality of the batch finished form example form.
  *
  * @group content_links
  */
-class BatchFormTest extends BrowserTestBase {
+class ProcessNodesTest extends BrowserTestBase {
 
   /**
    * Modules to enable.
@@ -17,7 +17,8 @@ class BatchFormTest extends BrowserTestBase {
    * @var array
    */
   protected static $modules = [
-    'batch_finish_example',
+    'batch_finished_example',
+    'node'
   ];
 
   /**
@@ -34,10 +35,10 @@ class BatchFormTest extends BrowserTestBase {
     $user = $this->createUser(['access content']);
     $this->drupalLogin($user);
 
-    $this->drupalGet('drupal-batch-examples/batch-finish-example');
+    $this->drupalGet('drupal-batch-examples/batch-process-nodes');
 
     $this->submitForm([], 'Run batch');
-    $this->assertSession()->pageTextContains('Finish batch completed processed');
+    $this->assertSession()->pageTextContains('Finished batch completed processed');
   }
 
 }

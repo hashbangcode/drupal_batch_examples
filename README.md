@@ -37,11 +37,15 @@ Path: `/drupal-batch-examples/batch-class-example`
 This module also shows how to use the batch API in Drush. The same batch process
 is run via the form and via the Drush command `drush batch_class_example:run`.
 
-## Batch Finish Example
+## Batch Finished Example
 
-An example of using the finish property of the batch API.
+An example of using the finished property of the batch API.
 
 Path: `/drupal-batch-examples/batch-finish-example`
+
+An example of using the finished property to process nodes on the site.
+
+Path: `/drupal-batch-examples/batch-process-nodes`
 
 ## Batch Addition Example
 

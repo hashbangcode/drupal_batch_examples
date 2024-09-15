@@ -1,23 +1,23 @@
 <?php
 
-namespace Drupal\batch_finish_example\Form;
+namespace Drupal\batch_finished_example\Form;
 
-use Drupal\batch_finish_example\Batch\BatchClass;
+use Drupal\batch_finished_example\Batch\BatchProcessNodes;
 use Drupal\Core\Batch\BatchBuilder;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Form that triggers a batch run.
+ * Form that triggers a batch run that process nodes.
  */
-class BatchForm extends FormBase {
+class ProcessNodes extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'batch_finish_example';
+    return 'batch_process_nodes';
   }
 
   /**
@@ -25,7 +25,7 @@ class BatchForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['help'] = [
-      '#markup' => $this->t('Submit this form to run a batch operation that will process 1000 items in batches of 100. Only one batch operation is given to the batch API, and this is called until a finish state is reached.'),
+      '#markup' => $this->t('Submit this form to run a batch operation that will process all nodes in the site. This uses the finished state of the batch API to determine when to stop processing data.'),
     ];
 
     $form['actions'] = [
@@ -45,13 +45,12 @@ class BatchForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $batch = new BatchBuilder();
     $batch->setTitle('Running batch process.')
-      ->setFinishCallback([BatchClass::class, 'batchFinished'])
+      ->setFinishCallback([BatchProcessNodes::class, 'batchFinished'])
       ->setInitMessage('Commencing')
       ->setProgressMessage('Processing...')
       ->setErrorMessage('An error occurred during processing.');
 
-    $array = range(1, 1000);
-    $batch->addOperation([BatchClass::class, 'batchProcess'], [$array]);
+    $batch->addOperation([BatchProcessNodes::class, 'batchProcess']);
 
     batch_set($batch->toArray());
 

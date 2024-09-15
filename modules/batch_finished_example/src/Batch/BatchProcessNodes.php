@@ -1,31 +1,33 @@
 <?php
 
-namespace Drupal\batch_finish_example\Batch;
+namespace Drupal\batch_finished_example\Batch;
 
 /**
- * Batch class to show the use of the 'finish' property.
+ * Batch class to show the use of the 'finished' property.
  */
-class BatchClass {
+class BatchProcessNodes {
 
   /**
    * Process a batch operation.
    *
-   * @param array $array
-   *   The array to process.
    * @param array $context
    *   Batch context.
    */
-  public static function batchProcess(array $array, array &$context): void {
+  public static function batchProcess(array &$context): void {
     if (!isset($context['sandbox']['progress'])) {
+      $query = \Drupal::entityQuery('node');
+      $query->accessCheck(FALSE);
+      $count = $query->count()->execute();
+
       $context['sandbox']['progress'] = 0;
-      $context['sandbox']['max'] = count($array);
+      $context['sandbox']['max'] = $count;
     }
     if (!isset($context['results']['updated'])) {
       $context['results']['updated'] = 0;
       $context['results']['skipped'] = 0;
       $context['results']['failed'] = 0;
       $context['results']['progress'] = 0;
-      $context['results']['process'] = 'Finish batch completed';
+      $context['results']['process'] = 'Finished batch completed';
     }
 
     // Message above progress bar.
@@ -34,33 +36,28 @@ class BatchClass {
       '@count' => number_format($context['sandbox']['max']),
     ]);
 
-    $batchSize = 100;
-
-    for ($i = $context['sandbox']['progress']; $i < $context['sandbox']['progress'] + $batchSize; $i++) {
-      $context['results']['progress']++;
-
-      // Sleep for a bit to simulate work being done.
-      usleep(4000 + $array[$i]);
-      // Decide on the result of the batch.
-      $result = rand(1, 4);
-      switch ($result) {
-        case '1':
-        case '2':
-          $context['results']['updated']++;
-          break;
-
-        case '3':
-          $context['results']['skipped']++;
-          break;
-
-        case '4':
-          $context['results']['failed']++;
-          break;
-      }
+    if ($context['sandbox']['max'] === 0) {
+      // There is nothing to do here, so set finished to 1 and return.
+      $context['finished'] = 1;
+      return;
     }
 
-    // Keep track of progress.
-    $context['sandbox']['progress'] += $batchSize;
+    $batchSize = 10;
+
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $query = $storage->getQuery();
+    $query->accessCheck(FALSE);
+    $query->range($context['sandbox']['progress'], $batchSize);
+    $ids = $query->execute();
+
+    foreach ($storage->loadMultiple($ids) as $entity) {
+      // Keep track of progress.
+      $context['sandbox']['progress']++;
+      $context['results']['progress']++;
+
+      // Process the entity here, for example, we might run $entity->delete() to
+      // delete the entity.
+    }
 
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
@@ -94,7 +91,7 @@ class BatchClass {
         '@elapsed' => $elapsed,
       ]));
       // Log the batch success.
-      \Drupal::logger('batch_finish_example')->info(
+      \Drupal::logger('batch_finished_example')->info(
         '@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
           '@process' => $results['process'],
           '@count' => $results['progress'],

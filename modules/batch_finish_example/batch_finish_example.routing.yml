@@ -1,7 +1,0 @@
-batch_finish_example:
-  path: '/drupal-batch-examples/batch-finish-example'
-  defaults:
-    _title: 'Batch Finish Example'
-    _form: 'Drupal\batch_finish_example\Form\BatchForm'
-  requirements:
-    _permission: 'access content'

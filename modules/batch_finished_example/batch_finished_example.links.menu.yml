@@ -1,0 +1,13 @@
+batch_finished_example:
+  title: 'Batch Finished Example'
+  parent: drupal_batch_examples
+  description: 'An example of using the finished property of the batch API to stop the batch.'
+  route_name: batch_finished_example
+  weight: 4
+
+batch_process_nodes:
+  title: 'Batch Process Nodes'
+  parent: drupal_batch_examples
+  description: 'An example of using the finished property of the batch API to process nodes.'
+  route_name: batch_process_nodes
+  weight: 5
