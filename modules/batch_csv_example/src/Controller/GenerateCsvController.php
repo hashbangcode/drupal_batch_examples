@@ -20,8 +20,8 @@ final class GenerateCsvController extends ControllerBase {
     // Initialise the random class for later use.
     $random = new Random();
 
-    // Generate 500 rows of a CSV file.
-    for ($i = 0; $i < 500; $i++) {
+    // Generate 1,000 rows of a CSV file.
+    for ($i = 0; $i < 1_000; $i++) {
       $row = [
         $random->name(15),
         $random->sentences(2),

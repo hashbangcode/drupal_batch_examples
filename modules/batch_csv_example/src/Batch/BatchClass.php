@@ -35,8 +35,8 @@ class BatchClass {
     // Message above progress bar.
     $percent = round(($context['sandbox']['seek'] / $filesize) * 100);
     $context['message'] = t('Processing file, @seek of @filesize complete (@percentage%).', [
-      '@seek' => number_format($context['sandbox']['seek']) . 'kb',
-      '@filesize' => number_format($filesize) . 'kb',
+      '@seek' => number_format($context['sandbox']['seek'] / 1024) . 'kb',
+      '@filesize' => number_format($filesize / 1024) . 'kb',
       '@percentage' => $percent,
     ]);
 

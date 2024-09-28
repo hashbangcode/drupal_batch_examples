@@ -37,7 +37,7 @@ class BatchForm extends FormBase {
 
     $form['csv_file_generate'] = [
       '#type' => 'link',
-      '#title' => $this->t('Generate a CSV file containing 500 items.'),
+      '#title' => $this->t('Generate a CSV file containing 1,000 items.'),
       '#url' => Url::fromRoute('batch_csv_example.generate'),
     ];
 
