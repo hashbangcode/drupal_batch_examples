@@ -7,7 +7,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Test the functionality of the batch form example form.
  *
- * @group content_links
+ * @group drupal_batch_examples
  */
 class BatchFormTest extends BrowserTestBase {
 

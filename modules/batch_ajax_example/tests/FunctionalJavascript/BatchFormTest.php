@@ -7,7 +7,7 @@ use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 /**
  * Test the functionality of the batch ajax form example form.
  *
- * @group content_links
+ * @group drupal_batch_examples
  */
 class BatchFormTest extends WebDriverTestBase {
 

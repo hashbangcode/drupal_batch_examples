@@ -7,7 +7,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Test the functionality of the batch download example.
  *
- * @group content_links
+ * @group drupal_batch_examples
  */
 class DownloadControllerTest extends BrowserTestBase {
 
