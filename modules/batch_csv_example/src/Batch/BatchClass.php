@@ -41,7 +41,7 @@ class BatchClass {
     ]);
 
     // How many lines to process at once?
-    $limit = 1;
+    $limit = 50;
 
     // Keep track of how many lines we have processed in this batch.
     $count = 0;
