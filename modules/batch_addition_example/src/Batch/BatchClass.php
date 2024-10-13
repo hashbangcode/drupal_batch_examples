@@ -41,11 +41,12 @@ class BatchClass {
       $batch = new BatchBuilder();
       $batch->setTitle('Running batch process.')
         ->setFinishCallback([BatchClass::class, 'batchFinished'])
-        ->setInitMessage('Commencing')
+        ->setInitMessage('Commencing inner batch operation')
         ->setProgressMessage('Processing...')
         ->setErrorMessage('An error occurred during processing.');
 
-      // Add a new chunk to process.
+      // Add a new chunk to process. Sending the third argument as false here
+      // means we don't start another batch inside this.
       $args = [
         $batchId + 1000,
         range(1, 100),
