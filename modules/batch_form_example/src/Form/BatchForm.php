@@ -137,45 +137,45 @@ class BatchForm extends FormBase {
    * @param string $elapsed
    *   Batch.inc kindly provides the elapsed processing time in seconds.
    */
-public static function batchFinished(bool $success, array $results, array $operations, string $elapsed): void {
-  // Grab the messenger service, this will be needed if the batch was a
-  // success or a failure.
-  $messenger = \Drupal::messenger();
-  if ($success) {
-    // The success variable was true, which indicates that the batch process
-    // was successful (i.e. no errors occurred).
-    // Show success message to the user.
-    $messenger->addMessage(t('@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
-      '@process' => $results['process'],
-      '@count' => $results['progress'],
-      '@skipped' => $results['skipped'],
-      '@updated' => $results['updated'],
-      '@failed' => $results['failed'],
-      '@elapsed' => $elapsed,
-    ]));
-    // Log the batch success.
-    \Drupal::logger('batch_form_example')->info(
-      '@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
+  public static function batchFinished(bool $success, array $results, array $operations, string $elapsed): void {
+    // Grab the messenger service, this will be needed if the batch was a
+    // success or a failure.
+    $messenger = \Drupal::messenger();
+    if ($success) {
+      // The success variable was true, which indicates that the batch process
+      // was successful (i.e. no errors occurred).
+      // Show success message to the user.
+      $messenger->addMessage(t('@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
         '@process' => $results['process'],
         '@count' => $results['progress'],
         '@skipped' => $results['skipped'],
         '@updated' => $results['updated'],
         '@failed' => $results['failed'],
         '@elapsed' => $elapsed,
-      ]);
-  }
-  else {
-    // An error occurred. $operations contains the operations that remained
-    // unprocessed. Pick the last operation and report on what happened.
-    $error_operation = reset($operations);
-    if ($error_operation) {
-      $message = t('An error occurred while processing %error_operation with arguments: @arguments', [
-        '%error_operation' => print_r($error_operation[0]),
-        '@arguments' => print_r($error_operation[1], TRUE),
-      ]);
-      $messenger->addError($message);
+      ]));
+      // Log the batch success.
+      \Drupal::logger('batch_form_example')->info(
+        '@process processed @count, skipped @skipped, updated @updated, failed @failed in @elapsed.', [
+          '@process' => $results['process'],
+          '@count' => $results['progress'],
+          '@skipped' => $results['skipped'],
+          '@updated' => $results['updated'],
+          '@failed' => $results['failed'],
+          '@elapsed' => $elapsed,
+        ]);
+    }
+    else {
+      // An error occurred. $operations contains the operations that remained
+      // unprocessed. Pick the last operation and report on what happened.
+      $error_operation = reset($operations);
+      if ($error_operation) {
+        $message = t('An error occurred while processing %error_operation with arguments: @arguments', [
+          '%error_operation' => print_r($error_operation[0]),
+          '@arguments' => print_r($error_operation[1], TRUE),
+        ]);
+        $messenger->addError($message);
+      }
     }
   }
-}
 
 }

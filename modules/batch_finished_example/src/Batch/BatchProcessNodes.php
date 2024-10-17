@@ -55,8 +55,11 @@ class BatchProcessNodes {
       $context['sandbox']['progress']++;
       $context['results']['progress']++;
 
-      // Process the entity here, for example, we might run $entity->delete() to
-      // delete the entity.
+      // Process the entity here. For example, we might run $entity->delete() to
+      // delete the entity. Here, we are just updating the creation date of the
+      // entity so that some action is performed.
+      $entity->set('created', time());
+      $entity->save();
     }
 
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];

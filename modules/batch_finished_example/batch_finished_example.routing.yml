@@ -13,4 +13,3 @@ batch_process_nodes:
     _form: 'Drupal\batch_finished_example\Form\ProcessNodes'
   requirements:
     _permission: 'access content'
-

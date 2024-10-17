@@ -18,7 +18,7 @@ class ProcessNodesTest extends BrowserTestBase {
    */
   protected static $modules = [
     'batch_finished_example',
-    'node'
+    'node',
   ];
 
   /**
