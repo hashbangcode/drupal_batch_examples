@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Install file for the bach_update_example module.
+ */
+
+/**
+ * A demonstration of the hook_update_N hook using the Batch API.
+ */
+function batch_update_example_update_10001(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = 1000;
+  }
+
+  $batchSize = 100;
+
+  for ($i = 0; $i < $batchSize; $i++) {
+    // Keep track of progress.
+    $sandbox['progress']++;
+
+    // Process the entity here, for example, we might run $entity->delete() to
+    // delete the entity.
+  }
+  \Drupal::messenger()->addMessage($sandbox['progress'] . ' items processed.');
+
+  // Return the finished property, but notice the "#" prefixing the finished
+  // property. This is required for update hooks.
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['max'];
+}

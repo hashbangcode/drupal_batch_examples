@@ -1,0 +1,7 @@
+batch_update_example:
+  path: '/drupal-batch-examples/batch-update-example'
+  defaults:
+    _title: 'Batch Update Example'
+    _form: 'Drupal\batch_update_example\Form\ResetForm'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,6 @@
+batch_update_example:
+  title: 'Batch Update Example'
+  parent: drupal_batch_examples
+  description: 'A reset form for the batch update example.'
+  route_name: batch_update_example
+  weight: 10

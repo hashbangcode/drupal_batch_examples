@@ -1,0 +1,7 @@
+name: 'Batch update example'
+type: module
+description: 'An example of using the built in update batch.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal_batch_examples:drupal_batch_examples
