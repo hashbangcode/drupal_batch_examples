@@ -20,8 +20,8 @@ function batch_update_example_update_10001(&$sandbox) {
     // Keep track of progress.
     $sandbox['progress']++;
 
-    // Process the entity here, for example, we might run $entity->delete() to
-    // delete the entity.
+    // Process the entity here, for example, we might perform some actions on
+    // a number of different tables or configuration entities.
   }
   \Drupal::messenger()->addMessage($sandbox['progress'] . ' items processed.');
 
