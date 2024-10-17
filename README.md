@@ -91,6 +91,17 @@ part of the normal batch systems, but still runs a normal batch process. You
 can use this as an interstitial page for when you want to prepare things for
 your users.
 
+## Batch Update Example
+
+Shows how to use the batch API in the hook_update_N and hook_post_update_NAME
+hooks.
+
+Path: `/drupal-batch-examples/batch-update-example`
+
+You can use this form to reset the update hooks for this module. Once done you
+can then run the update hooks again by either running `drush updatedb` or by
+logging in and visiting `/update.php`.
+
 # Thanks
 
 - Some of the batch process and finishing code is taken from
