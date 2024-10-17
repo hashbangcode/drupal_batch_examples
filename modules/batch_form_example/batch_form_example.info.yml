@@ -3,3 +3,5 @@ type: module
 description: 'An example of running a batch in a self contained form.'
 package: Custom
 core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal_batch_examples:drupal_batch_examples
