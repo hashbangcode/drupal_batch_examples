@@ -6,7 +6,7 @@
  */
 
 /**
- * A demonstration of the hook_post_update_NAME hook using the Batch API.
+ * A demonstration of the hook_post_update_NAME() hook using the Batch API.
  */
 function batch_update_example_post_update_process_nodes(&$sandbox) {
   if (!isset($sandbox['progress'])) {
