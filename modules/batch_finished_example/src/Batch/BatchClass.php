@@ -38,7 +38,6 @@ class BatchClass {
 
     for ($i = $context['sandbox']['progress']; $i < $context['sandbox']['progress'] + $batchSize; $i++) {
       $context['results']['progress']++;
-
       // Sleep for a bit to simulate work being done.
       usleep(4000 + $array[$i]);
       // Decide on the result of the batch.

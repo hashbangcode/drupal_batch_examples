@@ -75,6 +75,7 @@ class BatchController extends ControllerBase {
     ]);
 
     foreach ($chunk as $number) {
+      $context['sandbox']['progress']++;
       // Sleep for a bit to simulate work being done.
       usleep(4000 + $number);
       // Decide on the result of the batch.

@@ -101,6 +101,7 @@ class BatchForm extends FormBase {
     ]);
 
     foreach ($chunk as $number) {
+      $context['sandbox']['progress']++;
       // Sleep for a bit (making use of the number variable) to simulate work
       // being done. We do this so that the batch takes a noticeable amount of
       // time to complete.

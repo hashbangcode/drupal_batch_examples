@@ -49,7 +49,6 @@ class BatchClass {
     if ($handle = fopen($fileName, 'r')) {
       fseek($handle, $context['sandbox']['seek']);
       while ($line = fgetcsv($handle, 4096)) {
-
         $context['results']['progress']++;
 
         // Validate the CSV.
