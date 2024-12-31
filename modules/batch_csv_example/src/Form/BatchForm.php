@@ -25,6 +25,8 @@ class BatchForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $this->messenger()->addWarning('Note! Submitting this form will create 1000 pages of content in the site. Assuming that you downloaded the CSV file from this module.');
+
     $form['help'] = [
       '#markup' => $this->t('This form will run a batch operation that will import a CSV to create Article content items. The CSV is processed in the batch operation so the size of the file does not matter.'),
     ];
