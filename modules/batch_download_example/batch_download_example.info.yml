@@ -1,7 +1,7 @@
 name: 'Batch download example'
 type: module
 description: 'An example of using batch to generate a file for download.'
-package: Custom
+package: Batch
 core_version_requirement: ^10 || ^11
 dependencies:
   - drupal_batch_examples:drupal_batch_examples

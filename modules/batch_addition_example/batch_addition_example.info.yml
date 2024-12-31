@@ -1,7 +1,7 @@
 name: 'Batch additions example'
 type: module
 description: 'An example of adding a batch inside a running batch.'
-package: Custom
+package: Batch
 core_version_requirement: ^10 || ^11
 dependencies:
   - drupal_batch_examples:drupal_batch_examples

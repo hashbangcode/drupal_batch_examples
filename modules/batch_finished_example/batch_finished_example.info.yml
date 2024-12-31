@@ -1,7 +1,7 @@
 name: 'Batch finished example'
 type: module
 description: 'An example of using the finished property of the batch API.'
-package: Custom
+package: Batch
 core_version_requirement: ^10 || ^11
 dependencies:
   - drupal_batch_examples:drupal_batch_examples

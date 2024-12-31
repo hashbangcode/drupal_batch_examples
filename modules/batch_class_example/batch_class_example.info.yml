@@ -1,7 +1,7 @@
 name: 'Batch class example'
 type: module
 description: 'An example of running batch via a class. Includes Drush support.'
-package: Custom
+package: Batch
 core_version_requirement: ^10 || ^11
 dependencies:
   - drupal_batch_examples:drupal_batch_examples

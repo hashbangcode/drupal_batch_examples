@@ -1,7 +1,7 @@
 name: 'Batch CSV example'
 type: module
 description: 'An example of using the batch API to process a CSV file.'
-package: Custom
+package: Batch
 core_version_requirement: ^10 || ^11
 dependencies:
   - drupal_batch_examples:drupal_batch_examples
