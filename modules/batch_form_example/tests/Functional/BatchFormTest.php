@@ -37,7 +37,7 @@ class BatchFormTest extends BrowserTestBase {
     $this->drupalGet('drupal-batch-examples/batch-form-example');
 
     $this->submitForm([], 'Run batch');
-    $this->assertSession()->pageTextContains('Chunk batch completed processed');
+    $this->assertSession()->pageTextContains('Form batch completed processed');
   }
 
 }

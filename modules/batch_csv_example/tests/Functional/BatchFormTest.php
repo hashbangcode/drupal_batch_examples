@@ -47,7 +47,7 @@ class BatchFormTest extends BrowserTestBase {
       'files[csv_file]' => $fileSystem->realpath($modulePath . '/tests/data/batch_csv_example.csv'),
     ];
     $this->submitForm($parameters, 'Run batch');
-    $this->assertSession()->pageTextContains('Process CSV processed');
+    $this->assertSession()->pageTextContains('CSV batch completed');
   }
 
 }

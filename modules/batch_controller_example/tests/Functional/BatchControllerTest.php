@@ -37,7 +37,7 @@ class BatchControllerTest extends BrowserTestBase {
 
     $this->drupalGet('drupal-batch-examples/batch-controller-example');
 
-    $this->assertSession()->pageTextContains('Chunk batch completed processed');
+    $this->assertSession()->pageTextContains('Controller batch completed processed');
   }
 
 }
