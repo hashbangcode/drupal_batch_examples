@@ -102,6 +102,17 @@ You can use this form to reset the update hooks for this module. Once done you
 can then run the update hooks again by either running `drush updatedb` or by
 logging in and visiting `/update.php`.
 
+# Resources
+
+We have written some articles about the Batch API and the above examples so show how they work in detail.
+- Drupal 11: An Introduction To Batch Processing With The Batch API https://www.hashbangcode.com/article/drupal-11-introduction-batch-processing-batch-api
+- Drupal 11: Batch Operations Built Into Drupal https://www.hashbangcode.com/article/drupal-11-batch-operations-built-drupal
+- Drupal 11: Adding Operations To Running Batches https://www.hashbangcode.com/article/drupal-11-adding-operations-running-batches
+- Drupal 11: Using The Batch API To Process CSV Files https://www.hashbangcode.com/article/drupal-11-using-batch-api-process-csv-files
+- Drupal 11: Using The Finished State In Batch Processing https://www.hashbangcode.com/article/drupal-11-using-finished-state-batch-processing
+- Drupal 11: Batch Processing Using Drush https://www.hashbangcode.com/article/drupal-11-batch-processing-using-drush
+- All articles tagged with "Batch API" -> https://www.hashbangcode.com/tag/batch-api
+
 # Thanks
 
 - Some of the batch process and finishing code is taken from
